@@ -1,0 +1,16 @@
+.{
+    .name = "esp32-wifi-lib-zig",
+    .version = "0.0.0",
+
+    .dependencies = .{
+        .@"esp32-wifi-lib" = .{
+            .url = "https://github.com/espressif/esp32-wifi-lib/archive/b4991a9d2216f2cab9d7dfa1ed666be478f1aee0.tar.gz",
+            .hash = "1220e4de8c7819c2192a7c39aac646fef65d420484e3de2697315d628dcc1f91eac3",
+        },
+    },
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+    },
+}
