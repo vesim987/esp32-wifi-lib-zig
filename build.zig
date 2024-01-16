@@ -35,6 +35,19 @@ pub fn build(b: *std.Build) void {
 
     if (mesh)
         lib.addObjectFile(dep.path("esp32c3/libmesh.a"));
-
     b.installArtifact(lib);
+
+    const exe = b.addExecutable(.{
+        .name = "test",
+        .target = b.resolveTargetQuery(targets.riscv),
+        .optimize = .ReleaseSafe,
+    });
+
+    exe.addCSourceFile(.{
+        .file = .{ .path = "main.c" },
+        .flags = &.{},
+    });
+    exe.linkLibrary(lib);
+
+    b.installArtifact(exe);
 }
